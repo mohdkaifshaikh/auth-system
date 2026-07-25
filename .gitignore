@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+chatgpt.md
+# Build output
+dist/
+build/
+
+# Coverage
+# Runtime data
+#OS files
+# IDEs
+# Temporary files
+#Cache

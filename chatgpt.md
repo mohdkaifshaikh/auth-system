@@ -215,3 +215,16 @@ workers/
 events/
 
 jobs/
+
+# inside modules/auth:
+auth/
+├── auth.routes.ts
+├── auth.controller.ts
+├── auth.service.ts
+├── auth.repository.ts
+├── auth.schema.ts
+├── auth.middleware.ts
+├── auth.types.ts
+├── auth.utils.ts
+└── index.ts
+
