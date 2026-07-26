@@ -1,9 +1,9 @@
 # ADR-001: Project Technology Stack
 
-* **Status:** Accepted
-* **Date:** 2026-07-25
-* **Decision Makers:** Project Maintainer
-* **Type:** Architecture Decision Record (ADR)
+- **Status:** Accepted
+- **Date:** 2026-07-25
+- **Decision Makers:** Project Maintainer
+- **Type:** Architecture Decision Record (ADR)
 
 ---
 
@@ -13,13 +13,13 @@ This project aims to build a production-style authentication system while learni
 
 The technology stack should satisfy the following objectives:
 
-* Build secure authentication services
-* Learn modern backend development
-* Follow production engineering practices
-* Support future scalability
-* Have strong community support
-* Be widely adopted in the industry
-* Be suitable for long-term maintenance
+- Build secure authentication services
+- Learn modern backend development
+- Follow production engineering practices
+- Support future scalability
+- Have strong community support
+- Be widely adopted in the industry
+- Be suitable for long-term maintenance
 
 The selected technologies should not only solve current requirements but also provide a solid foundation for future enhancements.
 
@@ -54,12 +54,12 @@ Additional technologies such as Redis, testing frameworks, CI/CD, monitoring, an
 
 Node.js provides:
 
-* Large ecosystem
-* Excellent TypeScript support
-* Non-blocking I/O
-* Strong backend community
-* Widely used in production
-* Excellent authentication libraries
+- Large ecosystem
+- Excellent TypeScript support
+- Non-blocking I/O
+- Strong backend community
+- Widely used in production
+- Excellent authentication libraries
 
 It is an excellent platform for learning production backend development.
 
@@ -69,12 +69,12 @@ It is an excellent platform for learning production backend development.
 
 TypeScript improves code quality by providing:
 
-* Static type checking
-* Better IDE support
-* Easier refactoring
-* Reduced runtime errors
-* Better maintainability
-* Improved developer experience
+- Static type checking
+- Better IDE support
+- Easier refactoring
+- Reduced runtime errors
+- Better maintainability
+- Improved developer experience
 
 Since production applications continue to grow over time, TypeScript helps reduce bugs and improves long-term maintainability.
 
@@ -84,12 +84,12 @@ Since production applications continue to grow over time, TypeScript helps reduc
 
 Express was selected because it is:
 
-* Stable
-* Lightweight
-* Minimal
-* Highly flexible
-* Well documented
-* Supported by a large ecosystem
+- Stable
+- Lightweight
+- Minimal
+- Highly flexible
+- Well documented
+- Supported by a large ecosystem
 
 Learning Express also provides a strong understanding of HTTP fundamentals before exploring more opinionated frameworks.
 
@@ -99,13 +99,13 @@ Learning Express also provides a strong understanding of HTTP fundamentals befor
 
 PostgreSQL was selected because it offers:
 
-* ACID compliance
-* Strong transactional support
-* Excellent indexing
-* Foreign key constraints
-* Mature query optimizer
-* Rich SQL features
-* Production reliability
+- ACID compliance
+- Strong transactional support
+- Excellent indexing
+- Foreign key constraints
+- Mature query optimizer
+- Rich SQL features
+- Production reliability
 
 Authentication systems rely heavily on relational data and transactional consistency, making PostgreSQL an appropriate choice.
 
@@ -115,12 +115,12 @@ Authentication systems rely heavily on relational data and transactional consist
 
 Git provides:
 
-* Version control
-* Branch management
-* Collaboration
-* Change tracking
-* Rollback capability
-* Industry-standard workflows
+- Version control
+- Branch management
+- Collaboration
+- Change tracking
+- Rollback capability
+- Industry-standard workflows
 
 Every production software project depends on version control.
 
@@ -130,12 +130,12 @@ Every production software project depends on version control.
 
 GitHub provides:
 
-* Repository hosting
-* Pull Requests
-* Code Reviews
-* Issue Tracking
-* GitHub Actions
-* Open Source collaboration
+- Repository hosting
+- Pull Requests
+- Code Reviews
+- Issue Tracking
+- GitHub Actions
+- Open Source collaboration
 
 It is widely adopted across the software industry.
 
@@ -145,11 +145,11 @@ It is widely adopted across the software industry.
 
 Docker provides:
 
-* Consistent development environments
-* Reproducible builds
-* Simplified onboarding
-* Deployment portability
-* Dependency isolation
+- Consistent development environments
+- Reproducible builds
+- Simplified onboarding
+- Deployment portability
+- Dependency isolation
 
 Instead of saying "it works on my machine," every developer works within the same containerized environment.
 
@@ -159,11 +159,11 @@ Instead of saying "it works on my machine," every developer works within the sam
 
 The project will eventually consist of multiple services:
 
-* Backend
-* PostgreSQL
-* Redis
-* Testing services
-* Additional infrastructure
+- Backend
+- PostgreSQL
+- Redis
+- Testing services
+- Additional infrastructure
 
 Docker Compose allows these services to be started together using a single configuration.
 
@@ -173,10 +173,10 @@ Docker Compose allows these services to be started together using a single confi
 
 npm is selected because:
 
-* It ships with Node.js
-* It has excellent ecosystem support
-* It is well documented
-* It integrates well with production tooling
+- It ships with Node.js
+- It has excellent ecosystem support
+- It is well documented
+- It integrates well with production tooling
 
 Although alternative package managers exist, npm provides everything required for this project.
 
@@ -188,8 +188,8 @@ Although alternative package managers exist, npm provides everything required fo
 
 Alternatives:
 
-* Bun
-* Deno
+- Bun
+- Deno
 
 Reason not selected:
 
@@ -201,7 +201,7 @@ The primary objective is learning production backend engineering using the most 
 
 Alternative:
 
-* JavaScript
+- JavaScript
 
 Reason not selected:
 
@@ -213,8 +213,8 @@ While JavaScript is sufficient for small applications, TypeScript offers better 
 
 Alternatives:
 
-* Fastify
-* NestJS
+- Fastify
+- NestJS
 
 Reason not selected:
 
@@ -226,7 +226,7 @@ Express allows learning the fundamentals before introducing higher-level abstrac
 
 Alternative:
 
-* MongoDB
+- MongoDB
 
 Reason not selected:
 
@@ -238,7 +238,7 @@ Authentication systems benefit from relational integrity, transactions, and stro
 
 Alternative:
 
-* No containerization
+- No containerization
 
 Reason not selected:
 
@@ -250,22 +250,22 @@ Learning production engineering requires understanding reproducible environments
 
 ## Positive
 
-* Industry-standard technology stack
-* Large learning resources
-* Strong production relevance
-* Easy deployment
-* Excellent community support
-* Long-term maintainability
-* Good foundation for scaling
+- Industry-standard technology stack
+- Large learning resources
+- Strong production relevance
+- Easy deployment
+- Excellent community support
+- Long-term maintainability
+- Good foundation for scaling
 
 ---
 
 ## Negative
 
-* More configuration compared to simpler setups
-* Steeper learning curve
-* Additional tooling to manage
-* Longer initial setup phase
+- More configuration compared to simpler setups
+- Steeper learning curve
+- Additional tooling to manage
+- Longer initial setup phase
 
 These trade-offs are acceptable because the project's primary objective is education and production readiness rather than rapid feature delivery.
 
@@ -275,19 +275,19 @@ These trade-offs are acceptable because the project's primary objective is educa
 
 The following technologies will be evaluated through separate ADRs when they become necessary:
 
-* Layered Architecture
-* Folder Structure
-* ORM / Query Builder
-* Validation Library
-* Logging Framework
-* Redis
-* Email Service
-* Background Jobs
-* Testing Framework
-* API Documentation
-* CI/CD
-* Monitoring
-* Deployment Strategy
+- Layered Architecture
+- Folder Structure
+- ORM / Query Builder
+- Validation Library
+- Logging Framework
+- Redis
+- Email Service
+- Background Jobs
+- Testing Framework
+- API Documentation
+- CI/CD
+- Monitoring
+- Deployment Strategy
 
 Each decision will be documented independently.
 

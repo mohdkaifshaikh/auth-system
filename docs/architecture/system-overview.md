@@ -14,17 +14,17 @@ This document provides a high-level overview of the system architecture. It inte
 
 The service is responsible for:
 
-* User registration
-* User authentication
-* User authorization
-* Token management
-* Session management
-* Password management
-* Email verification
-* Password reset
-* OAuth authentication
-* User profile management
-* Audit logging (future)
+- User registration
+- User authentication
+- User authorization
+- Token management
+- Session management
+- Password management
+- Email verification
+- Password reset
+- OAuth authentication
+- User profile management
+- Audit logging (future)
 
 ---
 
@@ -34,12 +34,12 @@ The authentication service is responsible only for identity and access managemen
 
 It is **not** responsible for:
 
-* Payment processing
-* Product management
-* Order management
-* File storage
-* Notifications (except authentication emails)
-* Business-specific application logic
+- Payment processing
+- Product management
+- Order management
+- File storage
+- Notifications (except authentication emails)
+- Business-specific application logic
 
 The service should remain focused on authentication and authorization.
 
@@ -86,10 +86,10 @@ Future infrastructure:
 
 Responsible for:
 
-* Receiving HTTP requests
-* Returning HTTP responses
-* Request validation
-* Response formatting
+- Receiving HTTP requests
+- Returning HTTP responses
+- Request validation
+- Response formatting
 
 The API layer should remain thin and delegate business logic to internal services.
 
@@ -99,11 +99,11 @@ The API layer should remain thin and delegate business logic to internal service
 
 Responsible for:
 
-* Authentication
-* Authorization
-* Password verification
-* Token generation
-* User management
+- Authentication
+- Authorization
+- Password verification
+- Token generation
+- User management
 
 This layer contains the core business rules of the application.
 
@@ -113,10 +113,10 @@ This layer contains the core business rules of the application.
 
 Responsible for:
 
-* Reading data
-* Writing data
-* Database transactions
-* Query execution
+- Reading data
+- Writing data
+- Database transactions
+- Query execution
 
 Business logic should not directly depend on SQL queries.
 
@@ -126,13 +126,13 @@ Business logic should not directly depend on SQL queries.
 
 Responsible for:
 
-* Logging
-* Configuration
-* Docker
-* Environment variables
-* Email
-* Cache
-* Background jobs
+- Logging
+- Configuration
+- Docker
+- Environment variables
+- Email
+- Cache
+- Background jobs
 
 Infrastructure should support the application without containing business logic.
 
@@ -142,10 +142,10 @@ Infrastructure should support the application without containing business logic.
 
 The system will communicate with:
 
-* PostgreSQL
-* Email provider
-* OAuth providers (Google)
-* Redis (future)
+- PostgreSQL
+- Email provider
+- OAuth providers (Google)
+- Redis (future)
 
 ---
 
@@ -189,14 +189,14 @@ Each layer has a single responsibility.
 
 The project follows these principles:
 
-* Separation of concerns
-* Single responsibility
-* Modular design
-* Explicit dependencies
-* Secure by default
-* Maintainable code
-* Readable code
-* Testable components
+- Separation of concerns
+- Single responsibility
+- Modular design
+- Explicit dependencies
+- Secure by default
+- Maintainable code
+- Readable code
+- Testable components
 
 ---
 
@@ -206,11 +206,11 @@ The initial implementation is a modular monolith.
 
 Future enhancements may include:
 
-* Redis caching
-* Background job processing
-* Horizontal scaling
-* Container orchestration
-* API Gateway integration
+- Redis caching
+- Background job processing
+- Horizontal scaling
+- Container orchestration
+- API Gateway integration
 
 The architecture should allow these improvements without major restructuring.
 
@@ -222,13 +222,13 @@ Security is considered from the beginning rather than added later.
 
 Examples include:
 
-* Password hashing
-* Secure JWT handling
-* Environment variable protection
-* Input validation
-* Secure HTTP headers
-* Token expiration
-* Principle of least privilege
+- Password hashing
+- Secure JWT handling
+- Environment variable protection
+- Input validation
+- Secure HTTP headers
+- Token expiration
+- Principle of least privilege
 
 ---
 
@@ -236,12 +236,12 @@ Examples include:
 
 The application should support:
 
-* Local development
-* Containerized development
-* Production builds
-* Repeatable deployments
-* Automated testing
-* Continuous Integration
+- Local development
+- Containerized development
+- Production builds
+- Repeatable deployments
+- Automated testing
+- Continuous Integration
 
 Deployment details will be documented separately.
 
@@ -251,12 +251,12 @@ Deployment details will be documented separately.
 
 This overview will be complemented by additional architecture documents:
 
-* Folder Structure
-* Request Lifecycle
-* Authentication Flow
-* Database Design
-* Security Model
-* Deployment Architecture
-* Docker Architecture
+- Folder Structure
+- Request Lifecycle
+- Authentication Flow
+- Database Design
+- Security Model
+- Deployment Architecture
+- Docker Architecture
 
 Each document will explore one aspect of the system in greater detail.

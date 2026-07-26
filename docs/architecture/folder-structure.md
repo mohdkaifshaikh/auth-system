@@ -6,11 +6,11 @@ This document defines the proposed directory structure of the Authentication Sys
 
 The goal is to create a project structure that is:
 
-* Easy to understand
-* Easy to navigate
-* Easy to maintain
-* Easy to scale
-* Suitable for production applications
+- Easy to understand
+- Easy to navigate
+- Easy to maintain
+- Easy to scale
+- Suitable for production applications
 
 This document describes **what each directory is responsible for**, not how it will be implemented.
 
@@ -20,12 +20,12 @@ This document describes **what each directory is responsible for**, not how it w
 
 The folder structure follows these principles:
 
-* Single Responsibility
-* Separation of Concerns
-* Feature Isolation
-* Predictable Navigation
-* Scalability
-* Maintainability
+- Single Responsibility
+- Separation of Concerns
+- Feature Isolation
+- Predictable Navigation
+- Scalability
+- Maintainability
 
 Every folder should have one clear responsibility.
 
@@ -68,11 +68,11 @@ The source directory should contain only application code.
 
 It should never contain:
 
-* Documentation
-* Docker files
-* Build artifacts
-* Logs
-* Environment files
+- Documentation
+- Docker files
+- Build artifacts
+- Logs
+- Environment files
 
 ---
 
@@ -104,10 +104,10 @@ Application bootstrap.
 
 Responsible for:
 
-* Application initialization
-* Express app creation
-* Middleware registration
-* Route registration
+- Application initialization
+- Express app creation
+- Middleware registration
+- Route registration
 
 ---
 
@@ -117,10 +117,10 @@ Application configuration.
 
 Examples:
 
-* Environment variables
-* Application configuration
-* Constants
-* Feature flags
+- Environment variables
+- Application configuration
+- Constants
+- Feature flags
 
 No business logic should exist here.
 
@@ -132,10 +132,10 @@ Database-related code.
 
 Examples:
 
-* Database connection
-* Migrations
-* Seeds
-* Database configuration
+- Database connection
+- Migrations
+- Seeds
+- Database configuration
 
 ---
 
@@ -145,12 +145,12 @@ Contains business features.
 
 Each module should own its:
 
-* Controllers
-* Services
-* Repositories
-* Validation
-* Routes
-* Types
+- Controllers
+- Services
+- Repositories
+- Validation
+- Routes
+- Types
 
 Example:
 
@@ -169,10 +169,10 @@ Reusable application components.
 
 Examples:
 
-* Base classes
-* Shared interfaces
-* Shared utilities
-* Common errors
+- Base classes
+- Shared interfaces
+- Shared utilities
+- Common errors
 
 This folder should not become a dumping ground.
 
@@ -184,11 +184,11 @@ HTTP middleware.
 
 Examples:
 
-* Authentication
-* Authorization
-* Validation
-* Error handling
-* Request logging
+- Authentication
+- Authorization
+- Validation
+- Error handling
+- Request logging
 
 ---
 
@@ -208,9 +208,9 @@ Global TypeScript definitions.
 
 Examples:
 
-* Shared interfaces
-* Global declarations
-* Type extensions
+- Shared interfaces
+- Global declarations
+- Type extensions
 
 ---
 
@@ -220,9 +220,9 @@ Small reusable helper functions.
 
 Examples:
 
-* Date formatting
-* String utilities
-* Token utilities
+- Date formatting
+- String utilities
+- Token utilities
 
 Utility functions should remain stateless.
 
@@ -234,9 +234,9 @@ Wrappers around third-party libraries.
 
 Examples:
 
-* Logger
-* Mail client
-* Cache client
+- Logger
+- Mail client
+- Cache client
 
 Keeping integrations isolated makes future replacements easier.
 
@@ -250,10 +250,10 @@ tests/
 
 Will contain:
 
-* Unit tests
-* Integration tests
-* End-to-end tests
-* Test helpers
+- Unit tests
+- Integration tests
+- End-to-end tests
+- Test helpers
 
 Production code should not depend on test code.
 
@@ -269,9 +269,9 @@ Contains development and automation scripts.
 
 Examples:
 
-* Database setup
-* Data generation
-* Utility scripts
+- Database setup
+- Data generation
+- Utility scripts
 
 ---
 
@@ -285,9 +285,9 @@ Reserved for Docker-related configuration that grows beyond a single Dockerfile.
 
 Examples:
 
-* Development configuration
-* Production configuration
-* Docker helper files
+- Development configuration
+- Production configuration
+- Docker helper files
 
 ---
 
@@ -301,9 +301,9 @@ Reserved for GitHub-specific configuration.
 
 Examples:
 
-* GitHub Actions
-* Issue templates
-* Pull request templates
+- GitHub Actions
+- Issue templates
+- Pull request templates
 
 ---
 
@@ -315,9 +315,9 @@ Avoid creating empty folders simply because they are planned.
 
 For example:
 
-* `tests/` should be created when testing begins.
-* `docker/` should be created when Docker configuration becomes more complex.
-* `modules/` should be created when business features are implemented.
+- `tests/` should be created when testing begins.
+- `docker/` should be created when Docker configuration becomes more complex.
+- `modules/` should be created when business features are implemented.
 
 ---
 
@@ -327,12 +327,12 @@ As the project grows, additional directories may be introduced.
 
 Examples:
 
-* cache/
-* jobs/
-* events/
-* mail/
-* storage/
-* monitoring/
+- cache/
+- jobs/
+- events/
+- mail/
+- storage/
+- monitoring/
 
 These should be added only when they solve a real problem.
 

@@ -228,3 +228,20 @@ auth/
 ├── auth.utils.ts
 └── index.ts
 
+# daily work flow:
+
+pnpm dev
+
+# Write your code
+
+pnpm format
+pnpm lint
+pnpm typecheck
+pnpm test        # if available
+pnpm build
+pnpm start       # optional
+
+git status
+git add .
+git commit -m "feat(auth): add login endpoint"
+git push origin main

@@ -14,12 +14,12 @@ A consistent workflow improves code quality, reduces onboarding time, and minimi
 
 This project follows these principles:
 
-* Understand before implementing.
-* Automate repetitive tasks.
-* Keep the development environment consistent.
-* Prefer reproducible workflows.
-* Write maintainable code.
-* Learn production engineering practices.
+- Understand before implementing.
+- Automate repetitive tasks.
+- Keep the development environment consistent.
+- Prefer reproducible workflows.
+- Write maintainable code.
+- Learn production engineering practices.
 
 ---
 
@@ -63,10 +63,10 @@ Every meaningful change should be committed with a descriptive commit message.
 
 Future improvements may include:
 
-* Branch protection
-* Pull Requests
-* Code Reviews
-* GitHub Actions
+- Branch protection
+- Pull Requests
+- Code Reviews
+- GitHub Actions
 
 ---
 
@@ -76,10 +76,10 @@ The project will use **npm**.
 
 Reasons:
 
-* Bundled with Node.js
-* Stable
-* Widely adopted
-* Excellent ecosystem support
+- Bundled with Node.js
+- Stable
+- Widely adopted
+- Excellent ecosystem support
 
 Future package manager changes should be documented through an ADR.
 
@@ -91,10 +91,10 @@ The project will use the latest active **Node.js LTS** version supported by the 
 
 Using an LTS release provides:
 
-* Long-term support
-* Better stability
-* Better compatibility
-* Predictable updates
+- Long-term support
+- Better stability
+- Better compatibility
+- Predictable updates
 
 ---
 
@@ -102,11 +102,11 @@ Using an LTS release provides:
 
 The local development environment should eventually provide:
 
-* Node.js
-* npm
-* PostgreSQL
-* Docker
-* Docker Compose
+- Node.js
+- npm
+- PostgreSQL
+- Docker
+- Docker Compose
 
 Additional services such as Redis will be introduced when required.
 
@@ -118,10 +118,10 @@ The project aims to maintain consistent code quality.
 
 Planned tooling includes:
 
-* TypeScript
-* ESLint
-* Prettier
-* EditorConfig
+- TypeScript
+- ESLint
+- Prettier
+- EditorConfig
 
 These tools will be configured before feature development begins.
 
@@ -150,9 +150,9 @@ Separate configurations will eventually exist for different environments.
 
 Examples include:
 
-* Development
-* Testing
-* Production
+- Development
+- Testing
+- Production
 
 Environment-specific values should never be hardcoded.
 
@@ -166,11 +166,11 @@ Dependencies should be added only when they solve a real problem.
 
 Before installing any dependency, consider:
 
-* Why is it needed?
-* Is it actively maintained?
-* Is it widely adopted?
-* Can the standard library solve the problem?
-* Is there a simpler alternative?
+- Why is it needed?
+- Is it actively maintained?
+- Is it widely adopted?
+- Can the standard library solve the problem?
+- Is there a simpler alternative?
 
 Avoid unnecessary packages.
 
@@ -180,13 +180,13 @@ Avoid unnecessary packages.
 
 The project will eventually define npm scripts for tasks such as:
 
-* Development server
-* Production build
-* Linting
-* Formatting
-* Testing
-* Database migrations
-* Database seeding
+- Development server
+- Production build
+- Linting
+- Formatting
+- Testing
+- Database migrations
+- Database seeding
 
 Scripts will be introduced as the project grows.
 
@@ -198,9 +198,9 @@ Every major architectural decision should be documented.
 
 Documentation should be updated whenever:
 
-* A new technology is introduced.
-* A major decision changes.
-* The project workflow changes.
+- A new technology is introduced.
+- A major decision changes.
+- The project workflow changes.
 
 Documentation is part of the project, not an afterthought.
 
@@ -212,11 +212,11 @@ Development should follow secure practices from the beginning.
 
 Examples include:
 
-* Never commit secrets.
-* Use environment variables.
-* Validate user input.
-* Keep dependencies updated.
-* Apply the principle of least privilege.
+- Never commit secrets.
+- Use environment variables.
+- Validate user input.
+- Keep dependencies updated.
+- Apply the principle of least privilege.
 
 Security should be considered during development rather than added later.
 
@@ -228,11 +228,11 @@ As the project matures, repetitive tasks should be automated.
 
 Examples include:
 
-* Linting
-* Formatting
-* Testing
-* Building
-* CI/CD pipelines
+- Linting
+- Formatting
+- Testing
+- Building
+- CI/CD pipelines
 
 Automation reduces human error and improves consistency.
 
