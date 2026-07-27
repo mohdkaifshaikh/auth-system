@@ -2,12 +2,56 @@ import type { Server } from "node:http";
 import app from "./app/app.js";
 import { config } from "./app/config/env.js";
 import logger from "./app/config/logger.js";
+let isShuttingDown: boolean = false;
+async function shutdown(server: Server, reason: string): Promise<void> {
+  if (isShuttingDown) {
+    logger.warn("Shutdown already in progress...");
+    return;
+  }
 
-let server: Server;
+  isShuttingDown = true;
 
-async function start() {
+  logger.info({ reason }, "Shutting down server");
+
+  const forceShutdown = setTimeout(() => {
+    logger.fatal("Could not shutdown connection in time. Forcing shutdown");
+    process.exit(1);
+  }, 10_000);
+
   try {
-    server = app.listen(config.PORT, () => {
+    await new Promise<void>((resolve, reject) => {
+      server.close((error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve();
+      });
+    });
+    logger.info("HTTP server closed");
+
+    // Future cleanup
+    // await prisma.$disconnect();
+    // await redis.quit();
+    // await queue.close();
+
+    clearTimeout(forceShutdown);
+    logger.info("Shoutdown completed successfully");
+    process.exit(0);
+  } catch (error) {
+    clearTimeout(forceShutdown);
+    logger.fatal({ error }, "Error during graceful shutdown");
+    process.exit(1);
+  }
+}
+async function start(): Promise<void> {
+  try {
+    // Startup initialization
+    // await prisma.$connect();
+    // await redis.connect();
+    // await queue.start();
+
+    const server: Server = app.listen(config.PORT, () => {
       logger.info(
         {
           port: config.PORT,
@@ -16,14 +60,22 @@ async function start() {
         "Server Started",
       );
     });
-    process.on("SIGINT", () => {
-      logger.info("SIGINT received. Shutting down...");
-      server.close(() => process.exit(0));
+    process.on("SIGINT", () => void shutdown(server, "SIGINT"));
+
+    process.on("SIGTERM", () => void shutdown(server, "SIGTERM"));
+
+    // Unexpected promise errors
+    process.on("unhandledRejection", (reason) => {
+      logger.fatal({ reason }, "Unhandled promise rejection");
+
+      void shutdown(server, "unhandledRejection");
     });
 
-    process.on("SIGTERM", () => {
-      logger.info("SIGTERM received. Shutting down...");
-      server.close(() => process.exit(0));
+    // Unexpected synchronous errors
+    process.on("uncaughtException", (error) => {
+      logger.fatal({ error }, "Uncaught exception");
+
+      void shutdown(server, "uncaughtException");
     });
   } catch (error) {
     logger.fatal({ error }, "Failed to start server");
