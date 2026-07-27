@@ -2,14 +2,13 @@
 
 import type { NextFunction, Request, Response } from "express";
 
-import logger from "../config/logger.js";
 import { config } from "../config/env.js";
 import { parseHttpError } from "../../shared/errors/index.js";
 
 export function errorHandler(err: unknown, req: Request, res: Response, _next: NextFunction): void {
   const error = parseHttpError(err);
 
-  logger.error(
+  req.log.error(
     {
       err: error,
       method: req.method,
@@ -21,6 +20,7 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
 
   res.status(error.statusCode).json({
     success: false,
+    requestId: req.id,
     code: error.code,
     message: error.message,
     details: error.details ?? null,

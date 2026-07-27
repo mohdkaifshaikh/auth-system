@@ -4,9 +4,22 @@ import { pinoHttp } from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
 
 import logger from "../config/logger.js";
+import { randomUUID } from "crypto";
 
 const httpLogger = pinoHttp({
   logger,
+
+  // generate request id:
+  genReqId(req, res) {
+    const incomingId = req.headers["x-request-id"];
+
+    const requestId =
+      typeof incomingId === "string" && incomingId.length > 0 ? incomingId : randomUUID();
+
+    res.setHeader("X-Request-Id", requestId);
+
+    return requestId;
+  },
 
   // Log level based on response status
   customLogLevel: (_req, res, err) => {
@@ -29,9 +42,10 @@ const httpLogger = pinoHttp({
   // Only log the fields you actually need
   serializers: {
     req: (req: IncomingMessage) => ({
+      id: req.id,
       method: req.method,
       url: req.url,
-      ip: req.socket.remoteAddress,
+      ip: req.socket?.remoteAddress,
       userAgent: req.headers["user-agent"],
     }),
 

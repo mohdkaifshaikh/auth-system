@@ -1,3 +1,4 @@
+import { ErrorCode } from "../constants/errorCode.js";
 import { AppError } from "./app.error.js";
 
 export class InternalServerError extends AppError {
@@ -5,7 +6,7 @@ export class InternalServerError extends AppError {
     super({
       statusCode: 500,
       message,
-      code: "INTERNAL_SERVER_ERROR",
+      code: ErrorCode.INTERNAL_SERVER_ERROR,
       isOperational: false,
     });
   }

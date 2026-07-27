@@ -1,3 +1,4 @@
+import { ErrorCode } from "../constants/errorCode.js";
 import { AppError } from "./app.error.js";
 
 export class ForbiddenError extends AppError {
@@ -5,7 +6,7 @@ export class ForbiddenError extends AppError {
     super({
       statusCode: 403,
       message,
-      code: "FORBIDDEN",
+      code: ErrorCode.FORBIDDEN,
     });
   }
 }

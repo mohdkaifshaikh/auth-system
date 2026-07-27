@@ -1,3 +1,4 @@
+import { ErrorCode } from "../constants/errorCode.js";
 import { AppError } from "./app.error.js";
 
 export class UnauthorizedError extends AppError {
@@ -5,7 +6,7 @@ export class UnauthorizedError extends AppError {
     super({
       statusCode: 401,
       message,
-      code: "UNAUTHORIZED",
+      code: ErrorCode.UNAUTHORIZED,
     });
   }
 }

@@ -1,3 +1,4 @@
+import { ErrorCode } from "../constants/errorCode.js";
 import { AppError } from "./app.error.js";
 
 export class BadRequestError extends AppError {
@@ -5,7 +6,7 @@ export class BadRequestError extends AppError {
     super({
       statusCode: 400,
       message,
-      code: "BAD_REQUEST",
+      code: ErrorCode.BAD_REQUEST,
       details,
     });
   }

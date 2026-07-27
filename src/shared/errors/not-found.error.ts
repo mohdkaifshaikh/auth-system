@@ -1,3 +1,4 @@
+import { ErrorCode } from "../constants/errorCode.js";
 import { AppError } from "./app.error.js";
 
 export class NotFoundError extends AppError {
@@ -5,7 +6,7 @@ export class NotFoundError extends AppError {
     super({
       statusCode: 404,
       message,
-      code: "NOT_FOUND",
+      code: ErrorCode.NOT_FOUND,
     });
   }
 }
