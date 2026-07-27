@@ -2,8 +2,8 @@ import pino from "pino";
 import { config } from "./env.js";
 
 const isDev = config.NODE_ENV === "development";
-export const logger = pino({
-  level: config.LOG_LEVEL || (isDev ? "debug" : "info"),
+const logger = pino({
+  level: config.LOG_LEVEL,
   base: { service: config.APP_NAME },
   timestamp: pino.stdTimeFunctions.isoTime,
   serializers: {
@@ -24,3 +24,5 @@ export const logger = pino({
     },
   }),
 });
+
+export default logger;

@@ -19,4 +19,4 @@ if (!parsed.success) {
   console.error(z.flattenError(parsed.error).fieldErrors);
   process.exit(1);
 }
-export const config = parsed.data;
+export const config = Object.freeze(parsed.data);

@@ -1,0 +1,12 @@
+import { AppError } from "./app.error.js";
+
+export class InternalServerError extends AppError {
+  constructor(message = "Internal Server Error") {
+    super({
+      statusCode: 500,
+      message,
+      code: "INTERNAL_SERVER_ERROR",
+      isOperational: false,
+    });
+  }
+}
