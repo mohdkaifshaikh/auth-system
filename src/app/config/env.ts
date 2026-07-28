@@ -7,6 +7,9 @@ const envSchema = z.object({
   API_VERSION: z.enum(["v1"]).default("v1"),
   APP_NAME: z.string().default("auth-system"),
   BASE_URL: z.string().startsWith("/").default("/api"),
+
+  DATABASE_URL: z.url("DATABASE_URL must be a valid URL"),
+
   CORS_ORIGIN: z.url().default("http://localhost:5173"),
   LOG_LEVEL: z.enum(["trace", "debug", "info", "warn", "error", "fatal"]).default("info"),
 });

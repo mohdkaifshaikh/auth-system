@@ -22,3 +22,4 @@ build/
 # IDEs
 # Temporary files
 #Cache
+/src/generated/prisma

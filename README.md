@@ -44,4 +44,4 @@ ORM setup
 Repository layer
 Testing setup
 API documentation
-GitHub Actions], what i need to do in validation middleware
+GitHub Actions, what i need to do in validation middleware

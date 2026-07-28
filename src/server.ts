@@ -2,6 +2,7 @@ import type { Server } from "node:http";
 import app from "./app/app.js";
 import { config } from "./app/config/env.js";
 import logger from "./app/config/logger.js";
+import { prisma } from "./infra/database/prisma.js";
 let isShuttingDown: boolean = false;
 async function shutdown(server: Server, reason: string): Promise<void> {
   if (isShuttingDown) {
@@ -17,7 +18,7 @@ async function shutdown(server: Server, reason: string): Promise<void> {
     logger.fatal("Could not shutdown connection in time. Forcing shutdown");
     process.exit(1);
   }, 10_000);
-
+  forceShutdown.unref();
   try {
     await new Promise<void>((resolve, reject) => {
       server.close((error) => {
@@ -31,12 +32,12 @@ async function shutdown(server: Server, reason: string): Promise<void> {
     logger.info("HTTP server closed");
 
     // Future cleanup
-    // await prisma.$disconnect();
+    await prisma.$disconnect();
     // await redis.quit();
     // await queue.close();
 
     clearTimeout(forceShutdown);
-    logger.info("Shoutdown completed successfully");
+    logger.info("Shutdown completed successfully");
     process.exit(0);
   } catch (error) {
     clearTimeout(forceShutdown);
@@ -47,7 +48,7 @@ async function shutdown(server: Server, reason: string): Promise<void> {
 async function start(): Promise<void> {
   try {
     // Startup initialization
-    // await prisma.$connect();
+    await prisma.$connect();
     // await redis.connect();
     // await queue.start();
 
