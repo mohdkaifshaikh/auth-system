@@ -12,6 +12,7 @@ pnpm-debug.log*
 !.env.example
 
 chatgpt.md
+src/infra/database/impCmd.md
 # Build output
 dist/
 build/
