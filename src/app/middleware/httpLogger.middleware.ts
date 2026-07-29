@@ -4,7 +4,7 @@ import { pinoHttp } from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
 
 import logger from "../config/logger.js";
-import { randomUUID } from "crypto";
+import { randomUUID } from "node:crypto";
 
 const httpLogger = pinoHttp({
   logger,
