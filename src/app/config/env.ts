@@ -12,6 +12,10 @@ const envSchema = z.object({
 
   CORS_ORIGIN: z.url().default("http://localhost:5173"),
   LOG_LEVEL: z.enum(["trace", "debug", "info", "warn", "error", "fatal"]).default("info"),
+
+  JWT_SECRET: z.string().min(32, "JWT_SECRET must be at least 32 characters"),
+
+  JWT_EXPIRES_AT: z.string().default("7d"),
 });
 export type Config = z.infer<typeof envSchema>;
 
